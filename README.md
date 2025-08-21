@@ -1,57 +1,76 @@
 # 🫀 Organ Donation & Transplant Matching System
 
-A **web-based platform** that connects **organ donors** with **recipients** using a smart **matching algorithm**.  
-Built for NEXATHON 1.0 , this project aims to **save lives** by making organ allocation **faster, fairer, and more transparent**.  
+A *full-stack MERN platform* that connects *organ donors* with *recipients* through an intelligent *matching algorithm*.  
+Built for *NEXATHON 1.0, this project aims to **save lives* by making organ allocation *faster, smarter, and more transparent*.  
 
 ---
 
-## 🚨 Problem Statement
-Every year, thousands of patients die due to delays in finding suitable organ donors.  
-Current systems are often **manual, slow, and region-limited**.  
-We need a **digital solution** that ensures **real-time, efficient, and fair donor-recipient matching**.  
+## 🚨 Problem Statement  
+
+Every year, thousands of patients lose their lives due to the *delay in finding suitable organ donors*.  
+Current systems are:  
+
+- ❌ Manual & region-limited  
+- ❌ Prone to delays & inefficiencies  
+- ❌ Lacking real-time transparency  
+
+We need a *scalable, digital-first solution* that ensures *fair, fast, and efficient donor-recipient matching*.  
 
 ---
 
-## 💡 Our Solution
-A **centralized organ donation platform** with:
-- 📝 **Donor & Recipient Registration** (secure database).  
-- 🔍 **Smart Matching Algorithm** (blood group, HLA, urgency, proximity).  
-- ⚡ **Real-time Match Suggestions** with compatibility scores.  
-- 📢 **Instant Notifications** to hospitals/recipients when a match is found.  
-- 🔒 **Fair & Transparent Allocation** (blockchain integration optional).  
+## 💡 Our Solution  
+
+A *centralized web platform* designed for *real-time donor-recipient matching* with:  
+
+- 📝 *Donor & Recipient Registration* with secure authentication (JWT & bcrypt).  
+- 🔍 *Matching Algorithm* (blood type, medical urgency, organ type, geographic proximity).  
+- ⚡ *Real-time Compatibility Scoring* using MongoDB queries & Node.js logic.  
+- 📢 *Instant Notifications* via Email/SMS/WhatsApp APIs.  
+- 🔒 *Secure & Transparent Data Handling* (role-based access for hospitals, patients, authorities).  
+- 🌐 *Scalable Cloud Deployment* with CI/CD pipelines.  
 
 ---
 
-## 🛠️ Tech Stack
-**Frontend:** React / Next.js / TailwindCSS  
-**Backend:** Node.js / Express / Django / Flask  
-**Database:** MongoDB / PostgreSQL  
-**Algorithm:** Python (compatibility scoring)  
-**Optional:** Blockchain (Ethereum/Hyperledger) for transparency  
+## 🛠️ Tech Stack (MERN + Tailwind)  
+
+- *Frontend:* React.js + TailwindCSS + Axios + JWT Auth  
+- *Backend:* Node.js + Express.js (REST APIs)  
+- *Database:* MongoDB (Mongoose ORM)  
+- *Authentication & Security:* JWT, bcrypt, role-based access control  
+- *Notifications:* Twilio / Nodemailer / Firebase Cloud Messaging  
+- *Deployment:* Docker + AWS / Vercel / Render  
+
+*Optional Advanced Features:*  
+- Blockchain ledger for transparent allocation tracking  
+- WebSockets for real-time updates  
 
 ---
 
-## 🔗 System Workflow
-1. Donor/Recipient registers → data stored in DB.  
-2. Matching engine runs → calculates compatibility score.  
-3. Top matches displayed in dashboard.  
-4. Hospitals/recipients notified instantly.  
-5. Legal/ethical approval before transplantation.  
+## 🔗 System Workflow  
+
+1. *User Registration* → Donor/Recipient enters details → securely stored in MongoDB.  
+2. *Matching Engine* → Node.js algorithm calculates compatibility score.  
+3. *Dashboard View* → Hospitals see top matches ranked by urgency & compatibility.  
+4. *Notifications* → Automatic alerts sent to recipients & hospitals when a match is found.  
+5. *Approval & Transplant* → Legal/ethical checks before surgery.  
 
 ---
 
-##  👨‍💻 Team
+## 🌟 Key Features  
 
-1. SOURAV KUMAR SINGH – UI/UX & Presentation
+✅ Centralized digital organ registry  
+✅ Compatibility scoring system (blood type, organ type, urgency, location)  
+✅ Real-time donor-recipient suggestions  
+✅ Secure hospital/admin panel  
+✅ Cloud-hosted & scalable solution  
 
-2. AVINASH KUMAR    – Backend & Algorithm
+---
 
-3. JAY PRAKASH YADAV – Frontend Developer
+## 👨‍💻 Team  
 
-4. TARAPODO GARAI  – Database & Integration
+- *SOURAV KUMAR SINGH* – UI/UX & Presentation  
+- *AVINASH KUMAR* – Backend & Matching Algorithm  
+- *JAY PRAKASH YADAV* – Frontend Development  
+- *TARAPODO GARAI* – Database & API Integration  
 
-
-
-
-
-
+---
