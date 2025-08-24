@@ -1,16 +1,21 @@
 import React from 'react'
-import Navbar from './components/Navbar/Navbar'
-import Hero from './components/Hero/Hero'
-import Role from './components/Role/Role'
+import {Routes, Route} from 'react-router-dom'
+import Home from './components/Home/Home.jsx'
+import About from './components/About/About.jsx'
+import Login from './components/Login/Login.jsx'
+import SignUp from './components/SignUp/SignUp.jsx'
 
 function App() {
   
 
   return (
     <>
-      <Navbar/>
-      <Hero/>
-      <Role/>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/signup' element={<SignUp/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/about' element={<About/>}/>
+      </Routes>
     </>
   )
 }

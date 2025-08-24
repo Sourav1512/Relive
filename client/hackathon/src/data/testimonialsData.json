@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "text": "The waiting list felt endless until I registered on OrganBridge. The system helped me find a compatible liver donor quickly, and the hospital received instant alerts. I am deeply grateful to the donors and this technology for saving my life.",
+    "name": "Anita Pathak",
+    "role": "Liver Transplant Recipient",
+    "img": "https://randomuser.me/api/portraits/women/45.jpg"
+  },
+  {
+    "id": 2,
+    "text": "Thanks to OrganBridge, I found a suitable donor in time. The priority tracking feature kept my case visible to hospitals, and the doctors could act fast. I cannot express how thankful I am for this platform.",
+    "name": "Sameer Hemant",
+    "role": "Heart Transplant Recipient",
+    "img": "https://randomuser.me/api/portraits/men/46.jpg"
+  },
+  {
+    "id": 3,
+    "text": "My son needed a transplant urgently. OrganBridge connected us to hospitals and medical professionals who coordinated everything smoothly. The timely alerts truly made a difference — my child is alive because of this system.",
+    "name": "Kabir Dubey",
+    "role": "Father of a Child Recipient",
+    "img": "https://randomuser.me/api/portraits/men/48.jpg"
+  },
+  {
+    "id": 4,
+    "text": "I had been waiting for a kidney transplant for over 3 years. Through OrganBridge, I was matched with a donor in just a few weeks. The platform kept me updated with real-time notifications, and today, I have a new lease on life.",
+    "name": "Ramesh Kumar",
+    "role": "Kidney Transplant Recipient",
+    "img": "https://randomuser.me/api/portraits/men/50.jpg"
+  }
+]
