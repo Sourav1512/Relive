@@ -1,6 +1,12 @@
 import React from 'react'
 import hero from "../../assets/hero.avif"; // Assuming you have a hero image
 
+
+// Hero Component
+// This section serves as the introductory banner of the website.
+// It highlights the main call-to-action with a heading, hero image, and action buttons.
+
+
 const Hero = () => {
   return (
     <section >

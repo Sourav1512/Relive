@@ -2,6 +2,12 @@ import React from 'react'
 import logo from "../../assets/logo.png"
 
 
+// Footer Component
+// This component creates a responsive footer section with navigation links,
+// contact details, and social media icons. Built using TailwindCSS utility classes.
+
+
+
 const Footer = () => {
   return (
     
