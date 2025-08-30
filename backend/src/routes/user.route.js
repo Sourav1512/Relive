@@ -1,19 +1,13 @@
-import express from 'express';
-import { getUserProfile, loginUser, registerUser } from '../controllers/user.controller.js';
-import { authMiddleware } from "../middlewares/authMiddleware.js";
+import { Router } from 'express';
+import { registerUser, loginUser, currentUser, logOutUser } from "../controllers/user.controller.js"
+import { verifyLogin } from "../middlewares/authMiddleware.js"
 
 
-const router = express.Router();
+const router = Router();
 
-
-// register 
-router.post('/register', registerUser);
-
-// login 
-router.post('/login', loginUser);
-
-// profile
-router.get('/profile', authMiddleware, getUserProfile);
-
+router.route("/register").post(registerUser);
+router.route("/login").post(verifyLogin, loginUser);
+router.route("/profile").get(verifyLogin, currentUser);
+router.route("/logout").post(verifyLogin, logOutUser);
 
 export default router;

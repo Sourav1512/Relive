@@ -13,8 +13,14 @@ app.use(express.static("public"))
 app.use(cookieParser())
 
 import userRouter from "./routes/user.route.js"
+import adminRouter from "./routes/admin.route.js"
+import donorRouter from "./routes/doner.route.js"
+import recipientRouter from "./routes/recipient.route.js"
 
 app.use("/user", userRouter)
+app.use("/admin", adminRouter)
+app.use("/donor", donorRouter)
+app.use("/recipient", recipientRouter)
 
 app.get("/", (req, res) => {
     res.send("working")

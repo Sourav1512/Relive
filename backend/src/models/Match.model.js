@@ -8,22 +8,23 @@ const matchSchema = new mongoose.Schema({
   },
   donor: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    ref: "Doner",
     required: true
   },
   recipient: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    ref: "Recipient",
     required: true
+  },
+  admin: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Admin",
+    required: false
   },
   status: {
     type: String,
     enum: ["awaiting-approval", "approved", "rejected", "completed"],
     default: "awaiting-approval"
-  },
-  matchDate: {
-    type: Date,
-    default: Date.now
   }
 }, { timestamps: true });
 
