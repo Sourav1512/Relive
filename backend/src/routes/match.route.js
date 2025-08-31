@@ -3,7 +3,8 @@ import {
     manualMatch, 
     getAllMatches, 
     getMatchById, 
-    updateMatchStatus
+    updateMatchStatus,
+    updateRequestStatusByMatchId
 } from "../controllers/match.controller.js";
 import { verifyLogin } from "../middlewares/authMiddleware.js";
 import { verifyAdmin } from "../middlewares/adminMiddleware.js";
@@ -21,6 +22,7 @@ router.route("/getAllMatches").get(verifyLogin, getAllMatches); //this
 router.route("/getMatchById/:id").get(verifyAdmin, getMatchById); //this
 router.route("/getMatchById/:id").get(verifyLogin, getMatchById); //this
 
-router.route("/updateMatchStatus/:matchId").patch(verifyAdmin, updateMatchStatus);
+router.route("/updateMatchStatus/:matchId").patch(verifyAdmin, updateMatchStatus); //this
+router.route("/updateRequestStatusByMatchId/:matchId").patch(verifyAdmin, updateRequestStatusByMatchId); //this
 
 export default router;

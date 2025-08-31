@@ -68,9 +68,10 @@ A *centralized web platform* designed for *real-time donor-recipient matching* w
 
 ## 👨‍💻 Team  
 
-- *SOURAV KUMAR SINGH* – UI/UX & Presentation  
-- *AVINASH KUMAR* – Backend & Matching Algorithm  
+- *SOURAV KUMAR SINGH* – UI/UX , Presentation & Frontend Development
+- *AVINASH KUMAR* – Backend & API Integration  
 - *JAY PRAKASH YADAV* – Frontend Development  
-- *TARAPADA GARAI* – Database & API Integration  
+- *TARAPADA GARAI* – Database , Backend & Matching Algorithm 
 
 ---
+

@@ -148,6 +148,80 @@ const updateMatchStatus = asyncHandler(async (req, res) => {
     );
 });
 
+// Update donor and recipient request statuses using match ID
+const updateRequestStatusByMatchId = asyncHandler(async (req, res) => {
+    const { matchId } = req.params;
+    const { status } = req.body;
 
+    // Validate status
+    if (!['fulfilled', 'rejected'].includes(status)) {
+        throw new ApiError(400, "Status must be either 'fulfilled' or 'rejected'");
+    }
 
-export { manualMatch, getAllMatches, getMatchById, updateMatchStatus };
+    // Find the match with request references
+    const match = await Match.findById(matchId)
+        .select('donorRequest recipientRequest admin');
+
+    if (!match) {
+        throw new ApiError(404, "Match not found");
+    }
+
+    // Check if the current admin is assigned to this match
+    if (match.admin && match.admin.toString() !== req.admin._id.toString()) {
+        throw new ApiError(403, "You are not authorized to update requests for this match");
+    }
+
+    // Update donor request status
+    const updatedDonorRequest = await DonerRequest.findByIdAndUpdate(
+        match.donorRequest,
+        { status: status },
+        { new: true, runValidators: true }
+    ).populate('organType', 'type')
+     .populate('doner', 'bloodGroup location age gender')
+     .populate({
+        path: 'admin',
+        populate: {
+            path: 'user',
+            select: 'fullName email'
+        }
+    });
+
+    if (!updatedDonorRequest) {
+        throw new ApiError(404, "Donor request not found");
+    }
+
+    // Update recipient request status
+    const updatedRecipientRequest = await RecipientRequest.findByIdAndUpdate(
+        match.recipientRequest,
+        { status: status },
+        { new: true, runValidators: true }
+    ).populate('organType', 'type')
+     .populate({
+        path: 'recipient',
+        select: 'bloodGroup location age gender',
+        populate: {
+            path: 'user',
+            select: 'fullName email'
+        }
+    })
+     .populate({
+        path: 'admin',
+        populate: {
+            path: 'user',
+            select: 'fullName email'
+        }
+    });
+
+    if (!updatedRecipientRequest) {
+        throw new ApiError(404, "Recipient request not found");
+    }
+
+    return res.status(200).json(
+        new ApiResponse(200, {
+            donorRequest: updatedDonorRequest,
+            recipientRequest: updatedRecipientRequest
+        }, `Both donor and recipient request statuses updated to ${status} successfully`)
+    );
+});
+
+export { manualMatch, getAllMatches, getMatchById, updateMatchStatus, updateRequestStatusByMatchId };

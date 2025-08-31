@@ -95,8 +95,8 @@ const runMatchingProcess = async () => {
                     // Check if match already exists
                     const existingMatch = await Match.findOne({
                         organ: donorRequest.organType._id,
-                        donor: donorRequest.doner,
-                        recipient: recipientRequest.recipient,
+                        donorRequest: donorRequest._id,
+                        recipientRequest: recipientRequest._id,
                         status: 'awaiting-approval'
                     });
 
@@ -106,7 +106,9 @@ const runMatchingProcess = async () => {
                     await Match.create({
                         organ: donorRequest.organType._id,
                         donor: donorRequest.doner,
+                        donorRequest : donorRequest._id,
                         recipient: recipientRequest.recipient,
+                        recipientRequest: recipientRequest._id,
                         admin: firstAdmin?._id,
                         status: 'awaiting-approval'
                     });

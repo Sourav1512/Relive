@@ -27,7 +27,7 @@ const Navbar = () => {
         <div id="nav-menu" className="hidden lg:flex gap-12 ">
             <Link to="#pricing" className="font-medium hover:text-[#3238f2]">Home</Link>
             <Link to="#" className="font-medium hover:text-[#3238f2]">How Its Work</Link>
-            <Link to="#" className="font-medium hover:text-[#3238f2]">About</Link>
+            <Link to={'/about'} className="font-medium hover:text-[#3238f2]">About</Link>
             <Link to="#" className="font-medium hover:text-[#3238f2]">Contact</Link>
         </div>
 
@@ -62,7 +62,7 @@ const Navbar = () => {
             <div className="mt-6">
                 <Link to="#" className="font-medium m-3 p-3 hover:bg-gray-50 block">Home</Link>
                 <Link to="#" className="font-medium m-3 p-3 hover:bg-gray-50 block">How Its Work</Link>
-                <Link to="#" className="font-medium m-3 p-3 hover:bg-gray-50 block">About</Link>
+                <Link to={'/about'} className="font-medium m-3 p-3 hover:bg-gray-50 block">About</Link>
                 <Link to="#" className="font-medium m-3 p-3 hover:bg-gray-50 block">Contact</Link>
                 
             </div>

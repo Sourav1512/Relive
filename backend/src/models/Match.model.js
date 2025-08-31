@@ -12,9 +12,19 @@ const matchSchema = new mongoose.Schema({
     ref: "Doner",
     required: true
   },
+  donorRequest : {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "DonerRequest",
+    required: true
+  },
   recipient: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Recipient",
+    required: true
+  },
+  recipientRequest: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "RecipientRequest",
     required: true
   },
   admin: {
