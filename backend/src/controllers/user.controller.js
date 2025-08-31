@@ -21,7 +21,6 @@ const accessAndRefreshTokenGenrator = async (userId) => {
   }
 }
 
-// register user
 
 const registerUser = asyncHandler(async (req, res) => {
   const { email, fullName, password } = req.body
@@ -46,7 +45,7 @@ const registerUser = asyncHandler(async (req, res) => {
   return res.status(200).json(new ApiResponse(200, createUser, "register successfuly"))
 })
 
-// login user
+
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body
   if (!(email || password)) {
@@ -54,7 +53,7 @@ const loginUser = asyncHandler(async (req, res) => {
   }
   const user = await User.findOne({
     $or: [{ email }]
-  })
+  }).select("+password")
   if (!user) {
     throw new ApiError(404, "not found")
   }
@@ -62,14 +61,14 @@ const loginUser = asyncHandler(async (req, res) => {
   if (!isPassword) {
     throw new ApiError(401, "Bad request")
   }
-  const { accessToken, refereshToken } = await accessAndRefreshTokenGenrator(user._id)
+  const { accessToken, refreshToken } = await accessAndRefreshTokenGenrator(user._id)
   const loginUser = await User.findById(user._id).select("-password -refreshToken")
 
   return res
     .status(200)
     .cookie("accessToken", accessToken, options)
-    .cookie("refereshToken", refereshToken, options)
-    .json(new ApiResponse(200, { user: loginUser, refereshToken, accessToken }, "login successfully"))
+    .cookie("refreshToken", refreshToken, options)
+    .json(new ApiResponse(200, { user: loginUser, refreshToken, accessToken }, "login successfully"))
 })
 
 const currentUser = asyncHandler(async (req, res) => {

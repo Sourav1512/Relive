@@ -11,7 +11,7 @@ import {verifyLogin} from "../middlewares/authMiddleware.js"
 const router = Router();
 
 router.route("/createdonor").post(verifyLogin, createDonor);
-router.route("/donors/:id").get(verifyLogin, getDonorById);
+router.route("/getDonorById/:id").get(verifyLogin, getDonorById);
 router.route("/getAllDonors").get(verifyLogin, getAllDonors);
 router.route("/getDonorProfile").get(verifyLogin, getDonorProfile);
 router.route("/updateDonorProfile").put(verifyLogin, updateDonorProfile);

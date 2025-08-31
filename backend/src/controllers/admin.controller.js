@@ -39,23 +39,29 @@ const accessAndRefreshTokenGenrator = async (adminId) => {
 const adminRegister = asyncHandler(async (req, res) => {
     const { user, role, gender, contactInfo, location } = req.body;
     
-    // Check if all required fields are present
     if (!user || !role || !gender || !contactInfo || !location) {
         throw new ApiError(400, "All fields are required");
     }
+
+    const validRoles = ['admin', 'hospital', 'medical'];
+    if (!validRoles.includes(role)) {
+        throw new ApiError(400, "Role must be one of: admin, hospital, medical");
+    }
     
-    // Validate contactInfo structure
+    const validGenders = ['male', 'female', 'other'];
+    if (!validGenders.includes(gender)) {
+        throw new ApiError(400, "Gender must be one of: male, female, other");
+    }
+    
     if (!contactInfo.phone || !contactInfo.address) {
         throw new ApiError(400, "Phone and address are required in contact info");
     }
     
-    // Check if user exists
     const userExists = await User.findById(user);
     if (!userExists) {
         throw new ApiError(404, "User not found");
     }
     
-    // Check if admin already exists for this user
     const existingAdmin = await Admin.findOne({ user });
     if (existingAdmin) {
         throw new ApiError(409, "Admin is already registered for this user");
@@ -173,7 +179,6 @@ const updateAdminProfile = asyncHandler(async (req, res) => {
     if (gender !== undefined) updateData.gender = gender;
     if (location !== undefined) updateData.location = location;
     
-    // Handle contactInfo updates
     if (contactInfo !== undefined) {
         if (contactInfo.phone !== undefined) {
             updateData['contactInfo.phone'] = contactInfo.phone;

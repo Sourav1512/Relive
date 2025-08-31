@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongoosePaginate from "mongoose-paginate-v2"
 
 const donerRequestSchema = new mongoose.Schema({
     organType: {
@@ -37,6 +38,8 @@ const donerRequestSchema = new mongoose.Schema({
         default: "pending"
     }
 }, { timestamps: true });
+
+donerRequestSchema.plugin(mongoosePaginate);
 
 const DonerRequest = mongoose.model('DonerRequest', donerRequestSchema);
 export default DonerRequest;

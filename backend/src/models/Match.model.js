@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongoosePaginate from "mongoose-paginate-v2"
 
 const matchSchema = new mongoose.Schema({
   organ: {
@@ -27,6 +28,8 @@ const matchSchema = new mongoose.Schema({
     default: "awaiting-approval"
   }
 }, { timestamps: true });
+
+matchSchema.plugin(mongoosePaginate);
 
 const Match = mongoose.model("Match", matchSchema);
 export default Match;

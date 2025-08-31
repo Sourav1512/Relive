@@ -12,7 +12,7 @@ const uploadOnCloudinary = async (base64Image) => {
     try {
         if(!base64Image) return null
         const result = await cloudinary.uploader.upload(base64Image, {
-            resource_type : 'auto', // Change folder as needed
+            resource_type : 'auto',
           });      
 
         return result;

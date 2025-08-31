@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongoosePaginate from "mongoose-paginate-v2"
 
 const recipientRequestSchema = new mongoose.Schema({
     organType: {
@@ -43,6 +44,8 @@ const recipientRequestSchema = new mongoose.Schema({
         default: "pending"
     }
 }, { timestamps: true });
+
+recipientRequestSchema.plugin(mongoosePaginate);
 
 const RecipientRequest = mongoose.model('RecipientRequest', recipientRequestSchema);
 export default RecipientRequest;

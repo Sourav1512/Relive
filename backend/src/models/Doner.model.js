@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongoosePaginate from "mongoose-paginate-v2"
 
 const donerSchema = new mongoose.Schema({
     user: {
@@ -49,6 +50,8 @@ const donerSchema = new mongoose.Schema({
         required: true
     }
 }, { timestamps: true });
+
+donerSchema.plugin(mongoosePaginate);
 
 const Doner = mongoose.model('Doner', donerSchema);
 export default Doner;

@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongoosePaginate from "mongoose-paginate-v2"
 
 const adminSchema = new mongoose.Schema({
     user: {
@@ -40,6 +41,8 @@ const adminSchema = new mongoose.Schema({
         required: true
     }
 }, { timestamps: true });
+
+adminSchema.plugin(mongoosePaginate);
 
 const Admin = mongoose.model('Admin', adminSchema);
 export default Admin;

@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongoosePaginate from "mongoose-paginate-v2"
 
 const recipientSchema = new mongoose.Schema({
     user: {
@@ -48,6 +49,8 @@ const recipientSchema = new mongoose.Schema({
         required: true
     }
 }, { timestamps: true });
+
+recipientSchema.plugin(mongoosePaginate);
 
 const Recipient = mongoose.model('Recipient', recipientSchema);
 export default Recipient;

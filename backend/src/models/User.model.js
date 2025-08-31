@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import mongoosePaginate from "mongoose-paginate-v2"
 
 const userSchema = new mongoose.Schema({
   fullName: {
@@ -43,7 +44,7 @@ userSchema.methods.isPasswordCorrect = async function (password) {
 userSchema.methods.generateAccessToken = function () {
   return jwt.sign({
     _id: this._id,
-    email: this.numberOrEmail,
+    email: this.email,
     fullName: this.fullName
   },
     process.env.ACCESS_TOKEN_SECRET,
@@ -64,6 +65,7 @@ userSchema.methods.generateRefreshToken = function () {
   )
 }
 
+userSchema.plugin(mongoosePaginate);
 
 const User = mongoose.model('User', userSchema);
 export default User;
